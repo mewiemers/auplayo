@@ -4,27 +4,25 @@ type Props = {
   ImgSrc: string;
   artist: string;
   title: string;
-};
-
-type Like = {
   onClick?(): void;
   xxx: string;
 };
 
-export function LikeButton(props: Like) {
-  return (
-    <button className={styles.like} onClick={() => props.onClick()}>
-      {props.xxx}
-    </button>
-  );
-}
+// export function LikeButton(props: Like) {
+//   return (
+
+//   );
+// }
 
 export default function Track(props: Props) {
   return (
-    <div className={styles.trackbox}>
+    <li className={styles.trackbox}>
       <img className={styles.image__track} src={props.ImgSrc} />
-      <h4 className={styles.artist}>Dingens</h4>
-      <span className={styles.title}>Viech</span>
-    </div>
+      <div className={styles.artist}>{props.artist}</div>
+      <div className={styles.title}>{props.title}</div>
+      <button className={styles.like} onClick={() => props.onClick()}>
+        {props.xxx}
+      </button>
+    </li>
   );
 }

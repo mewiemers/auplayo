@@ -3,6 +3,7 @@ import { bringTrack, TrackfromApi } from "../../utils/api";
 import { useState, useEffect } from "react";
 import Detailstrack from "../../components/Detailstrack";
 import Player from "../../components/Audio";
+import Header from "../../components/Header";
 // import styles from "../../styles/Track.module.css";
 
 export default function Tracki() {
@@ -23,7 +24,9 @@ export default function Tracki() {
 
   return (
     <div>
-      {/* <header><Navigation /></header> */}
+      <header>
+        <Header />
+      </header>
       <main>
         <Detailstrack
           ImgSrc={track.ImgSrc}

@@ -1,9 +1,14 @@
-export default function Player() {
-  <figure>
-    <figcaption>Listen to the T-Rex:</figcaption>
-    <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+// import styles from "../styles/Audio.module.css";
+
+type AudioViech = {
+  audioFile: string;
+};
+
+export default function Player(props: AudioViech) {
+  return (
+    <audio controls src={props.audioFile}>
       Your browser does not support the
       <code>audio</code> element.
     </audio>
-  </figure>;
+  );
 }

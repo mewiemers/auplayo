@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import { bringTrack, TrackfromApi } from "../../utils/api";
 import { useState, useEffect } from "react";
-import styles from "../../styles/Track.module.css";
+import Detailstrack from "../../components/Detailstrack";
+import Player from "../../components/Audio";
+// import styles from "../../styles/Track.module.css";
 
 export default function Tracki() {
   const router = useRouter();
@@ -20,13 +22,17 @@ export default function Tracki() {
   }
 
   return (
-    <div className={styles.container}>
-      <img className={styles.image__track} src={track.ImgSrc} />
-      <div className={styles.artist}>Artist:{track.artist}</div>
-      <div className={styles.title}>Title: {track.title}</div>
+    <div>
+      {/* <header><Navigation /></header> */}
+      <main>
+        <Detailstrack
+          ImgSrc={track.ImgSrc}
+          title={track.title}
+          artist={track.artist}
+        />
+        <Player audioFile={track.audioFile} />
+      </main>
+      {/* <footer><AudioPlayer /></footer> */}
     </div>
   );
 }
-// if {typeof id !=="string"}{
-//   return;
-// }

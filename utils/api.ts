@@ -3,6 +3,7 @@ export type TrackfromApi = {
   ImgSrc: string;
   artist: string;
   title: string;
+  audioFile: string;
 };
 
 export async function bringTracks() {

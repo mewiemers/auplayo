@@ -4,37 +4,43 @@
       "id": "scooter_paul-is-dead",
       "ImgSrc": "https://images.unsplash.com/photo-1613473060226-dd81153a63db?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "artist": "Paul is Dead",
-      "title": "Scooter"
+      "title": "Scooter",
+      "audioFile": "/Dead.mp3"
     },
     {
       "id": "metallica_the-unforgiven",
       "ImgSrc": "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "artist": "The Unforgiven",
-      "title": "Metallica"
+      "title": "Metallica",
+      "audioFile": "/SCP.mp3"
     },
     {
       "id": "ding_vieh",
       "ImgSrc": "https://images.unsplash.com/photo-1518499845966-9a86ddb68051?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=60",
       "artist": "Dingens",
-      "title": "Viech"
+      "title": "Viech",
+      "audioFile": "/Comic.mp3"
     },
     {
       "id": "hell_wtf",
       "ImgSrc": "https://images.unsplash.com/photo-1575844261401-d69721eb5044?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8aGVsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "artist": "The Hell",
-      "title": "WTF"
+      "title": "WTF",
+      "audioFile": "/Metalmania.mp3"
     },
     {
       "id": "pod_miau",
       "ImgSrc": "https://images.unsplash.com/photo-1485579149621-3123dd979885?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "artist": "Podcats",
-      "title": "Micromiau"
+      "title": "Micromiau",
+      "audioFile": "/Hep Cats.mp3"
     },
     {
       "id": "guitar_burn",
       "ImgSrc": "https://images.unsplash.com/photo-1446057032654-9d8885db76c6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTh8fG11c2ljfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       "artist": "Burning-Guitar",
-      "title": "Burn Baby"
+      "title": "Burn Baby",
+      "audioFile": "/Slow Burn.mp3"
     }
   ]
 }

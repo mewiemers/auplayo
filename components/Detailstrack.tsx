@@ -1,11 +1,11 @@
-import styles from "../styles/TrackDetails.module.css";
+import styles from "../styles/Detailstrack.module.css";
 
 type Props = {
   ImgSrc: string;
   title: string;
   artist: string;
 };
-export default function TrackDetails({ ImgSrc, title, artist }: Props) {
+export default function Detailstrack({ ImgSrc, title, artist }: Props) {
   return (
     <div className={styles.trackDetails}>
       <img className={styles.img} src={ImgSrc} alt="" />

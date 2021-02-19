@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Detailstrack from "../../components/Detailstrack";
 import Player from "../../components/Audio";
 import Header from "../../components/Header";
+import styles from "../../styles/TrackView.module.css";
 // import styles from "../../styles/Track.module.css";
 
 export default function Tracki() {
@@ -23,7 +24,7 @@ export default function Tracki() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <header>
         <Header />
       </header>

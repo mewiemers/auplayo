@@ -3,4 +3,5 @@
   height: 100vh;
   display: grid;
   grid-auto-flow: row;
+  border-radius: 10%;
 }

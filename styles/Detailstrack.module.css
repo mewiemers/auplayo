@@ -1,3 +1,23 @@
-.play {
-  color: burlywood;
+.trackDteails {
+  display: grid;
+  grid-template: 1.6em 1.6em /3.2em 1fr;
+  grid-template-areas:
+    "img"
+    "title"
+    "artist";
+}
+
+.img {
+  border-radius: 25px;
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-top: 61px;
+}
+.title {
+  margin-left: 4em;
+  font-size: 1.6em;
+}
+.artist {
+  margin-left: 4em;
+  font-size: 1.6em;
 }

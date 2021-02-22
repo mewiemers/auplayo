@@ -1,4 +1,3 @@
-// import styles from "../styles/Greeting.module.css";
 import { useRouter } from "next/router";
 
 export default function Header() {

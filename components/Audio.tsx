@@ -1,17 +1,15 @@
 import styles from "../styles/Audio.module.css";
 import AudioControls from "./Controls";
 import React, { useRef, useEffect, useState } from "react";
-// import tracks from "../pages/api/tracks";
 import Detailstrack from "../components/Detailstrack";
+import { TrackfromApi } from "../utils/api";
 
 export type Tracks = {
-  ImgSrc: string;
-  artist: string;
-  title: string;
-  audioFile: string;
+  tracks: TrackfromApi[];
+  initialTrackId: string | string[];
 };
 
-const AudioPlayer = ({ tracks, initialTrackId }) => {
+const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
   const initialTrackIndex = tracks.findIndex(
     (track) => track.id === initialTrackId
   );
@@ -19,6 +17,13 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
   const [trackIndex, setTrackIndex] = useState(initialTrackIndex);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [track, setTrack] = useState(null);
+
+  useEffect(() => {
+    if (trackIndex) {
+      setTrack(tracks[trackIndex]);
+    }
+  }, [trackIndex]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -36,14 +41,16 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
     };
   }, []);
 
-  const { ImgSrc, artist, title, audioFile } = tracks[trackIndex];
-  const audioRef = useRef(new Audio(audioFile));
+  const audioRef = useRef(new Audio(track?.audioFile));
   const intervalRef = useRef();
   const isReady = useRef(false);
 
   useEffect(() => {
+    if (!track) {
+      return;
+    }
     audioRef.current.pause();
-    audioRef.current = new Audio(audioFile);
+    audioRef.current = new Audio(track.audioFile);
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {
@@ -52,10 +59,9 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
       startTimer();
       startTimer();
     } else {
-      // Set the isReady ref as true for the next pass
       isReady.current = true;
     }
-  }, [trackIndex]);
+  }, [trackIndex, track]);
 
   const { duration } = audioRef.current;
 
@@ -78,14 +84,6 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
   };
   const startTimer = () => {
     clearInterval(intervalRef.current);
-
-    //   intervalRef.current = setInterval(() => {
-    //     if (audioRef.current.ended) {
-    //       toNextTrack();
-    //     } else {
-    //       setTrackProgress(audioRef.current.currentTime);
-    //     }
-    //   }, []);
   };
 
   const onScrub = (value) => {
@@ -109,8 +107,8 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
 
   return (
     <>
-      <di className={styles.audio}>
-        <Detailstrack ImgSrc={ImgSrc} title={title} artist={artist} />
+      <div className={styles.audio}>
+        {track && <Detailstrack track={track} />}
         <AudioControls
           isPlaying={isPlaying}
           onPrevClick={toPrevTrack}
@@ -129,7 +127,7 @@ const AudioPlayer = ({ tracks, initialTrackId }) => {
           onKeyUp={onScrubEnd}
           style={{ background: trackStyling }}
         />
-      </di>
+      </div>
     </>
   );
 };

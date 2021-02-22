@@ -2,10 +2,6 @@ import { useRouter } from "next/router";
 import { bringTracks, TrackfromApi } from "../../utils/api";
 import { useState, useEffect } from "react";
 import AudioPlayer from "../../components/Audio";
-// import tracks from "../api/tracks";
-
-// import tracks from "../../server/db.json";
-// import styles from "../../styles/Track.module.css";
 
 export default function Tracki() {
   const router = useRouter();

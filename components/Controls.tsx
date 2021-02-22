@@ -1,12 +1,19 @@
 import styles from "../styles/Controls.module.css";
-import React from "react";
+import React, { MouseEvent } from "react";
+
+type Controls = {
+  isPlaying: boolean;
+  onPrevClick(event: MouseEvent): void;
+  onNextClick(event: MouseEvent): void;
+  onPlayPauseClick?(play: boolean): void;
+};
 
 const AudioControls = ({
   isPlaying,
   onPlayPauseClick,
   onPrevClick,
   onNextClick,
-}) => (
+}: Controls) => (
   <div className={styles.controls}>
     <button
       type="button"

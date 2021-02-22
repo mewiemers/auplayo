@@ -1,6 +1,6 @@
-.trackDteails {
+.trackDetails {
   display: grid;
-  grid-template: 1.6em 1.6em /3.2em 1fr;
+  gap: 2em;
   grid-template-areas:
     "img"
     "title"
@@ -8,16 +8,14 @@
 }
 
 .img {
-  border-radius: 25px;
-  padding-left: 55px;
-  padding-right: 55px;
-  padding-top: 61px;
+  grid-area: img;
+  border-radius: 20px;
 }
 .title {
-  margin-left: 4em;
+  grid-area: title;
   font-size: 1.6em;
 }
 .artist {
-  margin-left: 4em;
+  grid-area: artist;
   font-size: 1.6em;
 }

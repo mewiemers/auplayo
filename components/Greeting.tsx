@@ -7,7 +7,7 @@ type Props = {
 export default function Greeting(props: Props) {
   return (
     <p>
-      <span className={styles.name}>{props.name}</span>
+      <span className={styles.name}>Hello, {props.name}</span>
     </p>
   );
 }

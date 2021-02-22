@@ -3,6 +3,7 @@ import AudioControls from "./Controls";
 import React, { useRef, useEffect, useState } from "react";
 import Detailstrack from "../components/Detailstrack";
 import { TrackfromApi } from "../utils/api";
+import Header from "./Header";
 
 export type Tracks = {
   tracks: TrackfromApi[];
@@ -107,6 +108,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
 
   return (
     <>
+      <Header />
       <div className={styles.audio}>
         {track && <Detailstrack track={track} />}
         <AudioControls

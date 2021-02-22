@@ -80,7 +80,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
     if (trackIndex < tracks.length - 1) {
       setTrackIndex(trackIndex + 1);
     } else {
-      setTrackIndex(0);
+      setTrackIndex(-1);
     }
   };
   const startTimer = () => {

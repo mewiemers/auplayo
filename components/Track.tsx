@@ -8,12 +8,6 @@ type Props = {
   xxx: string;
 };
 
-// export function LikeButton(props: Like) {
-//   return (
-
-//   );
-// }
-
 export default function Track(props: Props) {
   return (
     <li className={styles.trackbox}>

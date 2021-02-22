@@ -1,16 +1,17 @@
-import styles from "../styles/TrackDetails.module.css";
 
-type Props = {
-  ImgSrc: string;
-  title: string;
-  artist: string;
+import styles from "../styles/Detailstrack.module.css";
+import { TrackfromApi } from "../utils/api";
+
+type Track = {
+  track: TrackfromApi;
 };
-export default function TrackDetails({ ImgSrc, title, artist }: Props) {
+export default function Detailstrack({ track }: Track) {
   return (
     <div className={styles.trackDetails}>
-      <img className={styles.img} src={ImgSrc} alt="" />
-      <div className={styles.title}>Title:{title}</div>
-      <div className={styles.artist}> Artist:{artist}</div>
+      <img className={styles.img} src={track.ImgSrc} alt="" />
+      <div className={styles.title}>Title:{track.title}</div>
+      <div className={styles.artist}> Artist:{track.artist}</div>
+
     </div>
   );
 }

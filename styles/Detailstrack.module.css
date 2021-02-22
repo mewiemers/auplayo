@@ -1,0 +1,21 @@
+.trackDetails {
+  display: grid;
+  gap: 2em;
+  grid-template-areas:
+    "img"
+    "title"
+    "artist";
+}
+
+.img {
+  grid-area: img;
+  border-radius: 20px;
+}
+.title {
+  grid-area: title;
+  font-size: 1.6em;
+}
+.artist {
+  grid-area: artist;
+  font-size: 1.6em;
+}

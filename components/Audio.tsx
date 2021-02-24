@@ -107,9 +107,9 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
   `;
 
   return (
-    <>
+    <div className={styles.audio}>
       <Header />
-      <div className={styles.audio}>
+      <div className={styles.content}>
         {track && <Detailstrack track={track} />}
         <AudioControls
           isPlaying={isPlaying}
@@ -130,7 +130,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
           style={{ background: trackStyling }}
         />
       </div>
-    </>
+    </div>
   );
 };
 export default AudioPlayer;

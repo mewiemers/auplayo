@@ -5,6 +5,7 @@ import Track from "../components/Track";
 import { useEffect, useState } from "react";
 import { TrackfromApi, bringTracks } from "../utils/api";
 import Link from "next/link";
+import Count from "../components/Counter";
 
 export default function Home() {
   const [color, setColor] = useState("💚");
@@ -44,14 +45,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Greeting name="Melanie" />
-      <ul className={styles.list}>
-        {trackList}
-
-        {/* <LikeButton xxx={color} onClick={() => BorisLike()} />
-        <LikeButton xxx={color} onClick={() => BorisLike()} />
-        <LikeButton xxx={color} onClick={() => BorisLike()} />
-        <LikeButton xxx={color} onClick={() => BorisLike()} /> */}
-      </ul>
+      <Count />
+      <ul className={styles.list}>{trackList}</ul>
     </div>
   );
 }

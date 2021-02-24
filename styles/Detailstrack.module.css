@@ -10,6 +10,7 @@
 .img {
   grid-area: img;
   border-radius: 20px;
+  object-fit: cover;
 }
 .title {
   grid-area: title;

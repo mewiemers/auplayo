@@ -8,6 +8,9 @@ import usingLocalStorage from "../../hooks/LocalStorage";
 export default function Tracki() {
   const router = useRouter();
   const { id: idQuery } = router.query;
+  if (!idQuery) {
+    return null;
+  }
   const id = typeof idQuery === "string" ? idQuery : idQuery[0];
 
   const [tracks, setTracks] = useState<TrackfromApi[]>(null);

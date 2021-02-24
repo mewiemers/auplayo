@@ -6,14 +6,15 @@ export type TrackfromApi = {
   audioFile: string;
 };
 
-export async function bringTracks() {
-  const response = await fetch("/api/tracks");
-  const tracks: TrackfromApi[] = await response.json();
-  return tracks;
+async function fetchURL<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  return await response.json();
 }
 
-export async function bringTrack(id) {
-  const response = await fetch(`/api/tracks/${id}`);
-  const track: TrackfromApi = await response.json();
-  return track;
+export async function bringTracks(): Promise<TrackfromApi[]> {
+  return await fetchURL<TrackfromApi[]>("/api/tracks");
+}
+
+export async function bringTrack(id: string): Promise<TrackfromApi> {
+  return await fetchURL<TrackfromApi>(`/api/tracks/${id}`);
 }

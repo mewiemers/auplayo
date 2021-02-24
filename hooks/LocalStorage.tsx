@@ -19,7 +19,7 @@ export default function usingLocalStorage<T>(
   };
   const [storedValue, setStoredValue] = useState<T>(readingFromLocalStorage);
 
-  const setValue = (value) => {
+  const setValue = (value: T) => {
     writingToLocalStorage(value);
     setStoredValue(value);
   };

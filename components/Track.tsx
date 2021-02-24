@@ -4,8 +4,6 @@ type Props = {
   ImgSrc: string;
   artist: string;
   title: string;
-  onClick?(): void;
-  xxx: string;
 };
 
 export default function Track(props: Props) {

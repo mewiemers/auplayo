@@ -6,17 +6,15 @@ import { useEffect, useState } from "react";
 import { TrackfromApi, bringTracks } from "../utils/api";
 import Link from "next/link";
 import Count from "../components/Counter";
+import usingLocalStorage from "../hooks/LocalStorage";
 
 export default function Home() {
-  const [color, setColor] = useState("💚");
-  const [colorState, setColorState] = useState(true);
-  function BorisLike() {
-    const newcolor = colorState ? "💚" : "💓";
-    setColor(newcolor);
-    setColorState(!colorState);
-  }
-
   const [tracks, setTracks] = useState<TrackfromApi[]>([]);
+  const [seefav] = usingLocalStorage<string[]>("favoriteTrack", []);
+
+  const mynewfav = tracks.filter((track) => seefav.includes(track.id));
+
+  const mynewunfav = tracks.filter((track) => !seefav.includes(track.id));
 
   useEffect(() => {
     bringTracks().then((brandnewTracks) => {
@@ -24,15 +22,25 @@ export default function Home() {
     });
   }, []);
 
-  const trackList = tracks.map((track) => (
+  const favtrackList = mynewfav.map((track) => (
     <Link href={`/tracks/${track.id}`} key={track.id}>
       <a>
         <Track
           ImgSrc={track.ImgSrc}
           artist={track.artist}
           title={track.title}
-          xxx={color}
-          onClick={() => BorisLike()}
+        />
+      </a>
+    </Link>
+  ));
+
+  const trackList = mynewunfav.map((track) => (
+    <Link href={`/tracks/${track.id}`} key={track.id}>
+      <a>
+        <Track
+          ImgSrc={track.ImgSrc}
+          artist={track.artist}
+          title={track.title}
         />
       </a>
     </Link>
@@ -46,6 +54,9 @@ export default function Home() {
       </Head>
       <Greeting name="Melanie" />
       <Count />
+      Tolle Lieder:
+      <ul className={styles.list}>{favtrackList}</ul>
+      Nicht so tolle Lieder:
       <ul className={styles.list}>{trackList}</ul>
     </div>
   );

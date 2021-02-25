@@ -1,4 +1,3 @@
-
 import styles from "../styles/Audio.module.css";
 import AudioControls from "./Controls";
 import React, { useRef, useEffect, useState } from "react";
@@ -135,3 +134,4 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
   );
 };
 
+export default AudioPlayer;

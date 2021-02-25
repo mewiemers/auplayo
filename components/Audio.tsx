@@ -21,9 +21,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
   const [track, setTrack] = useState(null);
 
   useEffect(() => {
-    if (trackIndex) {
-      setTrack(tracks[trackIndex]);
-    }
+    setTrack(tracks[trackIndex]);
   }, [trackIndex]);
 
   useEffect(() => {
@@ -80,7 +78,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
     if (trackIndex < tracks.length - 1) {
       setTrackIndex(trackIndex + 1);
     } else {
-      setTrackIndex(-1);
+      setTrackIndex(0);
     }
   };
   const startTimer = () => {
@@ -107,9 +105,9 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
   `;
 
   return (
-    <>
+    <div className={styles.audio}>
       <Header />
-      <div className={styles.audio}>
+      <div className={styles.content}>
         {track && <Detailstrack track={track} />}
         <AudioControls
           isPlaying={isPlaying}
@@ -130,7 +128,7 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
           style={{ background: trackStyling }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

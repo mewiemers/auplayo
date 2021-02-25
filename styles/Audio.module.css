@@ -1,9 +1,17 @@
 .audio {
-  padding: 5%;
-  border-radius: 40px;
   display: grid;
   justify-items: center;
 }
 .progress {
   width: 100%;
+}
+.like {
+  width: 4em;
+  border-radius: 10px;
+  border: double blue 2px;
+  margin: 1em 0 1em 0;
+}
+.content {
+  background-color: rgb(44, 14, 71);
+  border-radius: 20px;
 }

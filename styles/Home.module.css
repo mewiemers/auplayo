@@ -2,3 +2,7 @@
   display: grid;
   row-gap: 2em;
 }
+.list {
+  display: grid;
+  row-gap: 2em;
+}

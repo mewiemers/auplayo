@@ -1,0 +1,11 @@
+###GET alltracks
+
+GET http://localhost:3000/api/tracks
+
+###GET a single track
+
+GET http://localhost:3000/api/tracks/ding_vieh
+
+###DELETE a single single track
+
+DELETE http://localhost:3000/api/tracks/guitar_burn

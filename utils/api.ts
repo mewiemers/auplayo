@@ -18,3 +18,8 @@ export async function bringTracks(): Promise<TrackfromApi[]> {
 export async function bringTrack(id: string): Promise<TrackfromApi> {
   return await fetchURL<TrackfromApi>(`/api/tracks/${id}`);
 }
+export async function deleteSong(id: string) {
+  await fetch(`/api/tracks/${id}`, {
+    method: "DELETE",
+  });
+}

@@ -5,7 +5,7 @@ type DB = {
   tracks: TrackfromApi[];
 };
 
-const DB_PATH = "./server.db.json";
+const DB_PATH = "./server/db.json";
 
 export async function readDB(): Promise<DB> {
   const dbJSON = await fs.readFile("./server/db.json", "utf-8");

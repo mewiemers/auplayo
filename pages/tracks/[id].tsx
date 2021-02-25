@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import styles from "../../styles/Audio.module.css";
-import { bringTracks, TrackfromApi } from "../../utils/api";
+import { bringTracks, TrackfromApi, deleteSong } from "../../utils/api";
 import { useState, useEffect } from "react";
 import AudioPlayer from "../../components/Audio";
 import usingLocalStorage from "../../hooks/LocalStorage";
@@ -12,7 +12,6 @@ export default function Tracki() {
     return null;
   }
   const id = typeof idQuery === "string" ? idQuery : idQuery[0];
-
 
   const [tracks, setTracks] = useState<TrackfromApi[]>(null);
   const [favTracks, setFavTracks] = usingLocalStorage<string[]>(
@@ -29,6 +28,11 @@ export default function Tracki() {
     } else {
       setFavTracks([...favTracks, id]);
     }
+  };
+
+  const handleDeleteClick = async () => {
+    await deleteSong(id);
+    router.back();
   };
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export default function Tracki() {
         <button className={styles.like} onClick={handleonClick}>
           {fav ? "💓" : "💀"}
         </button>
+        <button onClick={handleDeleteClick}>🗑</button>
       </div>
     </>
   );

@@ -55,6 +55,7 @@ async function handleDelete(req: NextApiRequest, res: NextApiResponse) {
 
   const db = await readDB();
   db.tracks = db.tracks.filter((track) => track.id !== id);
+  console.log(db.tracks, id);
   await writeDB(db);
   res.status(202).json({
     status: 202,

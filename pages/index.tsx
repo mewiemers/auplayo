@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Greeting from "../components/Greeting";
 import Track from "../components/Track";
 import { useEffect, useState } from "react";
-import { TrackfromApi, bringTracks } from "../utils/api";
+import { TrackfromApi, bringTracks, deleteSong } from "../utils/api";
 import Link from "next/link";
 import Count from "../components/Counter";
 import usingLocalStorage from "../hooks/LocalStorage";
@@ -16,11 +16,11 @@ export default function Home() {
 
   const mynewunfav = tracks.filter((track) => !seefav.includes(track.id));
 
-  useEffect(() => {
-    bringTracks().then((brandnewTracks) => {
-      setTracks(brandnewTracks);
-    });
-  }, []);
+  function refreshTracks() {
+    bringTracks().then(setTracks);
+  }
+
+  useEffect(refreshTracks, []);
 
   const favtrackList = mynewfav.map((track) => (
     <Link href={`/tracks/${track.id}`} key={track.id}>
@@ -30,11 +30,41 @@ export default function Home() {
           artist={track.artist}
           title={track.title}
         />
+        <button
+          onClick={async (event) => {
+            event.preventDefault();
+            await deleteSong(track.id);
+            refreshTracks();
+          }}
+        >
+          Delete
+        </button>
       </a>
     </Link>
   ));
 
-  const trackList = mynewunfav.map((track) => (
+  const untrackList = mynewunfav.map((track) => (
+    <Link href={`/tracks/${track.id}`} key={track.id}>
+      <a>
+        <Track
+          ImgSrc={track.ImgSrc}
+          artist={track.artist}
+          title={track.title}
+        />
+        <button
+          onClick={async (event) => {
+            event.preventDefault();
+            await deleteSong(track.id);
+            refreshTracks();
+          }}
+        >
+          Delete
+        </button>
+      </a>
+    </Link>
+  ));
+
+  const trackList = tracks.map((track) => (
     <Link href={`/tracks/${track.id}`} key={track.id}>
       <a>
         <Track
@@ -57,6 +87,8 @@ export default function Home() {
       Tolle Lieder:
       <ul className={styles.list}>{favtrackList}</ul>
       Nicht so tolle Lieder:
+      <ul className={styles.list}>{untrackList}</ul>
+      alle Lieder:
       <ul className={styles.list}>{trackList}</ul>
     </div>
   );

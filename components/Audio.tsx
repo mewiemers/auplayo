@@ -131,4 +131,5 @@ const AudioPlayer = ({ tracks, initialTrackId }: Tracks) => {
     </div>
   );
 };
+
 export default AudioPlayer;

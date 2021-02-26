@@ -24,6 +24,7 @@ export async function deleteSong(id: string) {
   });
 }
 
+
 export async function addTrack(data: TrackfromApi) {
   return await fetch("/api/tracks", {
     method: "POST",
@@ -31,3 +32,4 @@ export async function addTrack(data: TrackfromApi) {
     body: JSON.stringify(data),
   });
 }
+

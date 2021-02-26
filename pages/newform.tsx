@@ -1,5 +1,7 @@
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { addTrack } from "../utils/api";
+import styles from "../styles/Form.module.css";
 
 export default function New() {
   const [id, setId] = useState("");
@@ -15,11 +17,23 @@ export default function New() {
     window.location.href = `/tracks/${id}`;
   }
 
+  useEffect(() => {
+    setId(
+      `${artist.replaceAll(" ", "-").toLowerCase()}_${title
+        .replaceAll(" ", "-")
+        .toLowerCase()}`
+    );
+  }, [artist, title]);
+
   return (
-    <form>
+    <form className={styles.formcontainer}>
       <label>
         ID
-        <input value={id} onChange={(event) => setId(event.target.value)} />
+        <input
+          value={id}
+          onChange={(event) => setId(event.target.value)}
+          readOnly
+        />
         <label>
           Image
           <input
@@ -48,7 +62,12 @@ export default function New() {
             onChange={(event) => setAudioFile(event.target.value)}
           />
         </label>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>!Track erstellen!</button>
+        <Link href={`/`}>
+          <a>
+            <button>Nach Hause telefonieren 👽👽</button>
+          </a>
+        </Link>
       </label>
     </form>
   );

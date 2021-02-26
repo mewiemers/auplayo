@@ -8,28 +8,24 @@ export default function New() {
   const [title, setTitle] = useState("");
   const [audioFile, setAudioFile] = useState("");
 
-  function handleChange(event) {
-    setId(event.target.value);
-    setImgSrc(event.target.value);
-    // setArtist(event.target.value);
-    // setAudioSrc(event.target.value);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
-    alert(`ID:${id} img:${ImgSrc}`);
+    const data = { id, ImgSrc, artist, title, audioFile };
+    addTrack(data);
+    window.location.href = `/tracks/${id}`;
   }
 
-  const data = { id, ImgSrc, artist, title, audioFile };
-  addTrack(data);
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         ID
-        <input value={id} onChange={handleChange} />
+        <input value={id} onChange={(event) => setId(event.target.value)} />
         <label>
           Image
-          <input value={ImgSrc} onChange={handleChange} />
+          <input
+            value={ImgSrc}
+            onChange={(event) => setImgSrc(event.target.value)}
+          />
         </label>
         <label>
           Artist

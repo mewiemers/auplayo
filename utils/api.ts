@@ -23,3 +23,11 @@ export async function deleteSong(id: string) {
     method: "DELETE",
   });
 }
+
+export async function addTrack(data: TrackfromApi) {
+  return await fetch("/api/tracks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+}

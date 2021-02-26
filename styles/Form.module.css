@@ -1,0 +1,27 @@
+.formcontainer {
+  display: grid;
+  row-gap: 2em;
+  margin: 2em;
+  background-color: rgb(121, 54, 148);
+  width: 90%;
+  height: 90%;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.formcontainer label {
+  display: grid;
+  font-style: oblique;
+  gap: 0.5em;
+}
+.formcontainer input {
+  display: grid;
+  background-color: rgb(88, 85, 104);
+  width: 18em;
+}
+.formcontainer button {
+  width: 15em;
+  margin: 1.6em;
+  border: double rgb(12, 80, 136) 2px;
+  border-radius: 10px;
+}

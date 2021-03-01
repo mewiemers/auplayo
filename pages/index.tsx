@@ -83,6 +83,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Greeting name="Melanie" />
+      <Link href={`/newform/`}>
+        <a>
+          <button>Track einstellen</button>
+        </a>
+      </Link>
       <Count />
       Tolle Lieder:
       <ul className={styles.list}>{favtrackList}</ul>

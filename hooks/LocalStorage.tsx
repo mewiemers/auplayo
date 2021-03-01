@@ -5,6 +5,9 @@ export default function usingLocalStorage<T>(
   firstValue: T
 ): [T, (value: T) => void] {
   const readingFromLocalStorage = (): T => {
+    if (typeof localStorage === "undefined") {
+      return firstValue;
+    }
     try {
       const piece = localStorage.getItem(key);
       return piece ? JSON.parse(piece) : firstValue;

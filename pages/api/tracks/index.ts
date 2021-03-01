@@ -30,6 +30,9 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
 
 async function handlePost(req: NextApiRequest, res: NextApiResponse) {
   const newTrack: TrackfromApi = req.body;
+  newTrack.id = `${newTrack.artist}_${newTrack.title}`
+    .replaceAll(" ", "-")
+    .toLowerCase();
   const db = await readDB();
   const trackExists = db.tracks.some((track) => track.id === newTrack.id);
   if (trackExists) {

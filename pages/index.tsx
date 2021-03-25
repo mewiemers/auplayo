@@ -83,7 +83,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Greeting name="Melanie" />
-      <Link href={`/newform/`}>
+      <Link href={`/addnew/`}>
         <a>
           <button>Track einstellen</button>
         </a>
